@@ -14,8 +14,8 @@ import Contact from "./contacts.entity";
 
 @Entity("users")
 class User {
-  @PrimaryGeneratedColumn("increment")
-  id: number;
+  @PrimaryGeneratedColumn("uuid")
+  id: string;
 
   @Column({ type: "varchar", length: 45 })
   full_name: string;
@@ -31,6 +31,9 @@ class User {
 
   @Column({ type: "varchar", length: 120 })
   password: string;
+
+  @Column({ type: "boolean", default: false })
+  admin: boolean;
 
   @OneToMany(() => Contact, (contacts) => contacts.user, { nullable: true })
   contacts: Contact[];

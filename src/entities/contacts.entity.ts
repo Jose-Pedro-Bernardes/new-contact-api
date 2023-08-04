@@ -9,8 +9,8 @@ import User from "./users.entity";
 
 @Entity("contacts")
 class Contact {
-  @PrimaryGeneratedColumn("increment")
-  id: number;
+  @PrimaryGeneratedColumn("uuid")
+  id: string;
 
   @Column({ type: "varchar", length: 45 })
   full_name: string;
